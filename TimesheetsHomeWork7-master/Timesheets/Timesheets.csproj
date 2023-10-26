@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Proto\department.proto" />
+    <None Remove="Proto\employee.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Arch.EntityFrameworkCore.Design" Version="2.1.15" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.48.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.48.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Core" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.8" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccoutHelper\AccoutHelper.csproj" />
+    <ProjectReference Include="..\EmployeeClient\EmployeeClient.csproj" />
+    <ProjectReference Include="..\EmployeeService.Dats\EmployeeService.Dats.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Proto\department.proto" GrpcServices="Server" />
+    <Protobuf Include="Proto\employee.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+</Project>
